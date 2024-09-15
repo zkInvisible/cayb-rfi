@@ -8,10 +8,21 @@ from core.info import game_data
 from core.task import process_do_task, process_watch_ads
 from core.claim import process_claim
 from core.boost import process_buy_boost
-
+from keep_alive import keep_alive
+import websockets
+from loguru import logger
+from flask import Flask
 import time
 
+# Flask application
+app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return "Hello World!"
+
+def run_flask():
+    app.run(debug=True)
 class CyberFinanace:
     def __init__(self):
         # Get file directory
@@ -108,6 +119,7 @@ class CyberFinanace:
 if __name__ == "__main__":
     try:
         cyberfinance = CyberFinanace()
+        keep_alive()
         cyberfinance.main()
     except KeyboardInterrupt:
         sys.exit()
