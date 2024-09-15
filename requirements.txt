@@ -1,1 +1,8 @@
 smart-airdrop-claimer
+requests==2.32.3
+pyfiglet==1.0.2
+colorama==0.4.6
+onlylog==1.0.1
+Flask
+websockets
+loguru
